@@ -1,0 +1,10 @@
+// import './chartist'
+// import './froala'
+// import './dropzone'
+import './axios'
+import './money' // não usado, importado direto nos componentes que precisam
+import './vue2-filters'
+import './v-viewer'
+// import './vuetify'
+import './apexchart'
+// import './chartkick'
