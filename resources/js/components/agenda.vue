@@ -150,6 +150,11 @@
                 <v-tab-item
                     key="1"
                 >
+                    <v-flex xs12 text-xs-center>
+                    <agenda-calendario :lista="listAgenda">
+
+                    </agenda-calendario>
+                    </v-flex>
 
 
                     </v-tab-item>
@@ -181,6 +186,7 @@
 <script>
     import SollusMsgExcluir from './sollus-dialog.vue';
     import AgendaAddEdit from "./agenda-add-edit.vue";
+    import AgendaCalendario from "./agenda-calendario";
     import bus from './events/bus';
     import AtonMsg from './events/_atonmsg.vue';
     import AtonProgress from './events/_atonprogress.vue';
@@ -225,6 +231,7 @@
         },
         components: {
             AgendaAddEdit,
+            AgendaCalendario,
             SollusMsgExcluir,
             AtonMsg,
             AtonProgress,
