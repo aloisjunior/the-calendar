@@ -151,7 +151,7 @@
                     key="1"
                 >
                     <v-flex xs12 text-xs-center>
-                    <agenda-calendario :lista="listAgenda">
+                    <agenda-calendario :lista-arr="listAgenda">
 
                     </agenda-calendario>
                     </v-flex>

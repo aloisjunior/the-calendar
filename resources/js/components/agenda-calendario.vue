@@ -117,7 +117,14 @@
         name: "agenda-calendario",
 
         props: {
-            "lista":[],
+            listaObj: {
+                type: Object,
+                default: () => ({})
+            },
+            listaArr: {
+                type: Array,
+                default: () => ([])
+            },
         },
 
         data: () => ({
