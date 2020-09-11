@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="openDialog" persistent max-width="600px">
+    <v-dialog v-model="openDialog" persistent max-width="800px">
         <v-card
                 @keyup.esc.prevent="setCancel()"
                 @keyup.enter.prevent="setOk()">
