@@ -148,7 +148,12 @@
         },
         computed: {
             listEventos(){
-                return [];
+                const retorno = this.listaArr.map(evento => ({
+                    name: evento.descricao,
+                    start: evento.data + ' ' + evento.horario + ':00'
+                }));
+
+                return retorno;
             }
         },
         methods: {
