@@ -219,7 +219,7 @@
 
                 if (!this.validation()) return false;
 
-                let self = this;
+                var self = this;
                 this.loading = true;
 
                 bus.$emit('atonprogress:open', 'Atualizando dados');
@@ -234,7 +234,7 @@
                     _url = '/api/agenda/' + self.id + '/update';
 
                     this.$http.post(_url, postData, {headers: {
-                            Authorization: 'Bearer ' + self.$my_token,
+                            Authorization: 'Bearer ' + this.$parent.$parent.token_login,
                         }})
                         .then(response => {
                             self.loading = false;
@@ -262,7 +262,7 @@
                     postData = addData;
 
                     this.$http.post(_url, postData, {headers: {
-                        Authorization: 'Bearer ' + self.$my_token,
+                        Authorization: 'Bearer ' + this.$parent.$parent.token_login,
                     }})
                         .then(response => {
                             self.loading = false;
@@ -290,7 +290,7 @@
                 this.loading = true;
 
                 this.$http.get('/api/agenda/' + self.id+'/update',  {headers: {
-                        Authorization: 'Bearer ' + self.$my_token,
+                        Authorization: 'Bearer ' + self.$parent.$parent.token_login,
                     }})
                     .then(response => {
                         self.dadosDB = response.data;

@@ -19,6 +19,7 @@
                     key="0"
                 >
 
+
                         <v-flex xs12 text-xs-center>
                             <v-card hover>
                                 <v-toolbar dark color="teal">
@@ -238,11 +239,14 @@
             },
             loadDados: function () {
                 if (this.loading) return false;
-                let self = this;
+                var self = this;
                 this.loading = true;
                 bus.$emit('atonprogress:on');
+                let temp = this.$parent.token_login;
+
+                console.log('token atual: ' + this.$parent.token_login);
                 this.$http.get('/api/agenda', {headers: {
-                        Authorization: 'Bearer ' + self.$my_token,
+                        Authorization: 'Bearer ' + this.$parent.token_login,
                     }})
                     .then(response => {
 //                        console.log(response);
@@ -271,7 +275,7 @@
 
                 this.loading = true;
                 this.$http.get('/api/agenda/' + self.itemSelected.id + '/destroy', {headers: {
-                        Authorization: 'Bearer ' + self.$my_token,
+                        Authorization: 'Bearer ' + this.$parent.token_login,
                     }})
                     .then(response => {
                         self.loading = false;

@@ -2,7 +2,7 @@
     <transition name="slide-fade"
                 mode="out-in"
     >
-        <component :is="activeComp" @loginOk="activeComp = 'agenda'" @logout="activeComp = 'login'">
+        <component :is="activeComp"  @SetToken="(payload) => token_login=payload" @loginOk="activeComp = 'agenda'" @logout="activeComp = 'login'">
         </component>
     </transition>
 
@@ -16,6 +16,7 @@
         name: "frontendEnube",
         data: () => ({
             activeComp: 'login',
+            token_login: '',
         }),
 
         components: {

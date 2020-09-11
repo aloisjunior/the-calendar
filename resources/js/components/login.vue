@@ -78,6 +78,7 @@
 
                 this.$http.post('/api/login/token', this.dados)
                     .then(response => {
+                        self.$emit('SetToken', response.data);
                         self.$my_token = response.data;
                         // console.log(response.data);
                         console.log(self.$my_token);
