@@ -211,7 +211,9 @@
                 let self = this;
                 this.loading = true;
                 bus.$emit('atonprogress:on');
-                this.$http.get('/agenda')
+                this.$http.get('/api/agenda', {headers: {
+                        Authorization: 'Bearer ' + self.$my_token,
+                    }})
                     .then(response => {
 //                        console.log(response);
 //                         self.loading = false;
@@ -238,7 +240,9 @@
                 const drago =  Object.assign('', self.itemSelected.descricao);
 
                 this.loading = true;
-                this.$http.get('/agenda/' + self.itemSelected.id + '/destroy')
+                this.$http.get('/api/agenda/' + self.itemSelected.id + '/destroy', {headers: {
+                        Authorization: 'Bearer ' + self.$my_token,
+                    }})
                     .then(response => {
                         self.loading = false;
 

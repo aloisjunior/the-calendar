@@ -45,6 +45,7 @@ Vue.filter('formatDate', function (value, format = 'DD/MM/YYYY HH:mm') {
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 window.Vue.prototype.$http = window.axios;
+window.Vue.prototype.$my_token = '';
 
 Vue.component('login', require('./components/login').default);
 Vue.component('agenda', require('./components/agenda').default);

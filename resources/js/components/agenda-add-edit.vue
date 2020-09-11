@@ -225,15 +225,17 @@
                 bus.$emit('atonprogress:open', 'Atualizando dados');
 
 
-                let _url = '/agenda';
+                let _url = '/api/agenda';
 
                 let postData = this.dadosDB;
 
 
                 if (this.isEdit) {
-                    _url = '/agenda/' + self.id + '/update';
+                    _url = '/api/agenda/' + self.id + '/update';
 
-                    this.$http.post(_url, postData)
+                    this.$http.post(_url, postData, {headers: {
+                            Authorization: 'Bearer ' + self.$my_token,
+                        }})
                         .then(response => {
                             self.loading = false;
 
@@ -259,7 +261,9 @@
 
                     postData = addData;
 
-                    this.$http.post(_url, postData)
+                    this.$http.post(_url, postData, {headers: {
+                        Authorization: 'Bearer ' + self.$my_token,
+                    }})
                         .then(response => {
                             self.loading = false;
 
@@ -285,7 +289,9 @@
                 bus.$emit('atonprogress:open');
                 this.loading = true;
 
-                this.$http.get('/agenda/' + self.id+'/update')
+                this.$http.get('/api/agenda/' + self.id+'/update',  {headers: {
+                        Authorization: 'Bearer ' + self.$my_token,
+                    }})
                     .then(response => {
                         self.dadosDB = response.data;
                         // self.$nextTick(() =>
